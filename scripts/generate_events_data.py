@@ -13,7 +13,6 @@ dates = pd.date_range(start_date, end_date, freq="D")
 event_id = 1
 
 for date in dates:
-    # simulate 1–3 department entries per day
     daily_depts = np.random.choice(departments, size=np.random.randint(1, 4), replace=False)
     for dept in daily_depts:
         visits = np.random.randint(10, 80)
@@ -30,7 +29,6 @@ for date in dates:
 
 df = pd.DataFrame(rows)
 
-# Limit to ~180 rows so it's not massive
 df = df.head(180)
 
 df.to_csv("data/raw/events.csv", index=False)
